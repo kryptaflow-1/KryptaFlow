@@ -29,7 +29,7 @@ export const siteConfig = {
     email: "mailto:kryptaflow@gmail.com",
   },
   links: {
-    explorer: "http://localhost:4000",
+    explorer: "https://bscscan.com",
     dapp: "/dapp",
     whitepaper: "/whitepaper",
     community: "/community",
