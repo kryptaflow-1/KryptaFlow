@@ -1,0 +1,39 @@
+<svg width="1360" height="480" viewBox="0 0 1360 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="0.55" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#d946ef"/>
+    </linearGradient>
+    <radialGradient id="r" cx="55%" cy="40%" r="75%">
+      <stop offset="0" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1360" height="480" rx="56" fill="#07070a"/>
+  <path d="M-60 110 C 240 0, 460 0, 760 110 C 1010 210, 1140 190, 1460 80 L 1460 -40 L -60 -40 Z" fill="url(#g)" opacity="0.22"/>
+  <path d="M-60 520 C 260 360, 500 340, 820 450 C 1060 520, 1210 500, 1460 410 L 1460 560 L -60 560 Z" fill="url(#g)" opacity="0.18"/>
+  <circle cx="820" cy="220" r="340" fill="url(#r)"/>
+  <circle cx="1040" cy="150" r="180" fill="url(#g)" opacity="0.10" filter="url(#soft)"/>
+  <circle cx="420" cy="360" r="210" fill="url(#g)" opacity="0.10" filter="url(#soft)"/>
+
+  <g transform="translate(72,112)">
+    <rect x="0" y="0" width="168" height="168" rx="42" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)"/>
+    <path d="M49 36h20v48l44-48h26L87 94l56 60h-28L69 104v50H49V36z" fill="url(#g)"/>
+    <path d="M115 50c-10 18-28 36-54 54" stroke="url(#g)" stroke-width="6" stroke-linecap="round" opacity="0.30"/>
+  </g>
+
+  <g transform="translate(268,156)">
+    <text x="0" y="78" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="76" font-weight="900" fill="white" letter-spacing="-2">
+      KryptaFlow
+    </text>
+    <text x="0" y="120" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="20" font-weight="700" fill="rgba(255,255,255,0.70)">
+      Official community " kryptaflow.com
+    </text>
+  </g>
+</svg>
+

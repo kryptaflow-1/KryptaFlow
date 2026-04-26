@@ -1,0 +1,44 @@
+<svg width="2560" height="1440" viewBox="0 0 2560 1440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="0.55" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#d946ef"/>
+    </linearGradient>
+    <radialGradient id="r" cx="55%" cy="40%" r="75%">
+      <stop offset="0" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+  </defs>
+
+  <rect width="2560" height="1440" rx="96" fill="#07070a"/>
+  <path d="M-80 340 C 520 0, 980 0, 1520 300 C 1980 560, 2240 480, 2700 240 L 2700 -80 L -80 -80 Z" fill="url(#g)" opacity="0.22"/>
+  <path d="M-80 1520 C 620 1120, 1080 1080, 1600 1320 C 2000 1500, 2260 1460, 2700 1180 L 2700 1600 L -80 1600 Z" fill="url(#g)" opacity="0.18"/>
+
+  <circle cx="1500" cy="620" r="860" fill="url(#r)"/>
+  <circle cx="1980" cy="420" r="420" fill="url(#g)" opacity="0.10" filter="url(#soft)"/>
+  <circle cx="820" cy="980" r="520" fill="url(#g)" opacity="0.10" filter="url(#soft)"/>
+
+  <!-- Keep all important content inside YouTube "safe area" (center 1546×423). -->
+  <g transform="translate(260,560)">
+    <rect x="0" y="0" width="300" height="300" rx="72" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)"/>
+    <path d="M90 70h34v92l86-92h50l-104 112 114 120h-54l-96-102v102H90V70z" fill="url(#g)"/>
+    <path d="M206 104c-20 34-52 66-104 104" stroke="url(#g)" stroke-width="10" stroke-linecap="round" opacity="0.30"/>
+  </g>
+
+  <g transform="translate(640,628)">
+    <text x="0" y="120" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="140" font-weight="900" fill="white" letter-spacing="-3">
+      KryptaFlow
+    </text>
+    <text x="0" y="190" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="40" font-weight="700" fill="rgba(255,255,255,0.72)">
+      Explorer-first EVM chain " KFL token " Community-driven
+    </text>
+    <text x="0" y="248" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="30" font-weight="600" fill="rgba(255,255,255,0.55)">
+      Official links: kryptaflow.com
+    </text>
+  </g>
+</svg>
+

@@ -1,0 +1,21 @@
+{
+  "name": "kryptaflow",
+  "private": true,
+  "workspaces": [
+    "chain",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "sharp": "^0.34.5"
+  },
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "chain:node": "npm run node -w chain",
+    "chain:deploy": "npm run deploy -w chain",
+    "dev:all": "concurrently -n CHAIN,DEPLOY,WEB -c green,cyan,magenta \"npm run chain:node\" \"npm run chain:deploy\" \"npm run dev\"",
+    "explorer:up": "docker compose -f explorer/docker-compose.yml up -d",
+    "explorer:down": "docker compose -f explorer/docker-compose.yml down",
+    "brand:export": "node tools/export-brand-kit.mjs"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "kryptaflow-social-bot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js"
+  }
+}
+

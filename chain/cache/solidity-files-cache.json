@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\surface\\Desktop\\KryptaFLow.com\\chain\\contracts\\KryptaFlowToken.sol": {
+      "lastModificationDate": 1777129597107,
+      "contentHash": "18c559c2c5d4a6a59985b1df585f9abd",
+      "sourceName": "contracts/KryptaFlowToken.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "KryptaFlowToken"
+      ]
+    }
+  }
+}

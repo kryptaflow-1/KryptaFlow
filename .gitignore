@@ -1,0 +1,22 @@
+# Root monorepo ignores (keep pushes fast + avoid leaking secrets)
+
+# dependencies
+node_modules/
+
+# Next.js / build outputs
+.next/
+out/
+dist/
+build/
+
+# OS / tooling
+.DS_Store
+*.log
+*.tsbuildinfo
+
+# env files (never commit real secrets)
+.env
+.env.*
+
+# Vercel local metadata
+.vercel/

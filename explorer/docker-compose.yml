@@ -1,0 +1,68 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: blockscout
+      POSTGRES_USER: blockscout
+      POSTGRES_PASSWORD: blockscout
+    ports:
+      - "5432:5432"
+    volumes:
+      - blockscout_postgres:/var/lib/postgresql/data
+
+  blockscout:
+    image: blockscout/blockscout:latest
+    depends_on:
+      - postgres
+    command: ["bin/blockscout", "start"]
+    environment:
+      # Connect to your local chain (Ganache) running on the host machine.
+      # On Windows/macOS, Docker containers reach the host via host.docker.internal.
+      ETHEREUM_JSONRPC_VARIANT: "geth"
+      ETHEREUM_JSONRPC_HTTP_URL: http://host.docker.internal:8545
+      ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545
+      DATABASE_URL: postgresql://blockscout:blockscout@postgres:5432/blockscout
+
+      NETWORK: KryptaFlow Local
+      SUBNETWORK: kryptaflow
+      CHAIN_ID: "31337"
+
+      # Disable some optional features to keep the local setup simple.
+      DISABLE_EXCHANGE_RATES: "true"
+      INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER: "true"
+      INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER: "true"
+      SHOW_ADDRESS_MARKETCAP_PERCENTAGE: "false"
+
+      API_V2_ENABLED: "true"
+      ECTO_USE_SSL: "false"
+      MIX_ENV: "prod"
+      SECRET_KEY_BASE: "56NtB48ear7+wMSf0IQuWDAAazhpb31qyc7GiyspBP2vh7t5zlCsF5QDv76chXeN"
+
+      # App host/port
+      PORT: "4000"
+      BLOCKSCOUT_HOST: localhost
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  frontend:
+    image: ghcr.io/blockscout/frontend:latest
+    env_file:
+      - ./frontend.env
+    depends_on:
+      - blockscout
+
+  proxy:
+    image: nginx:1.27-alpine
+    depends_on:
+      - blockscout
+      - frontend
+    ports:
+      - "4000:80"
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+
+volumes:
+  blockscout_postgres:
+
