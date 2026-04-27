@@ -1,0 +1,35 @@
+Instagram — Day 1 (carousel) — what to upload
+
+Files (1080x1080 PNG) on your PC:
+C:\Users\surface\Desktop\KryptaFLow.com\brand-kit\instagram-day1-slide-1-1080.png
+C:\Users\surface\Desktop\KryptaFLow.com\brand-kit\instagram-day1-slide-2-1080.png
+C:\Users\surface\Desktop\KryptaFLow.com\brand-kit\instagram-day1-slide-3-1080.png
+
+Public URLs (after deploy):
+https://kryptaflow.com/brand/instagram-day1-slide-1-1080.png
+https://kryptaflow.com/brand/instagram-day1-slide-2-1080.png
+https://kryptaflow.com/brand/instagram-day1-slide-3-1080.png
+
+How to post (Instagram app)
+1) Create -> Post
+2) Select the 3 PNGs in order (1 then 2 then 3)
+3) Turn ON multiple select / carousel
+4) Caption: paste text below
+5) Post
+
+Caption (English)
+Day 1 | KryptaFlow is now live: https://kryptaflow.com
+
+Swipe for: key facts + security tips.
+$KFL pre-launch on BSC — 0% tax — LP lock 8 months — contract TBA.
+
+Not financial advice.
+
+Hashtags (use 4-6 only)
+#KryptaFlow #KFL #BSC #BNB #Crypto #Web3
+
+First comment (optional, keeps caption clean)
+Official links: https://kryptaflow.com
+Telegram: https://t.me/kryptaflow
+X: https://x.com/kryptaflow
+GitHub: https://github.com/kryptaflow-1/KryptaFlow

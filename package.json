@@ -18,6 +18,7 @@
     "explorer:down": "docker compose -f explorer/docker-compose.yml down",
     "brand:export": "node tools/export-brand-kit.mjs",
     "brand:reddit": "node tools/render-reddit-banners.mjs",
-    "brand:x-card": "node tools/render-x-launch-card.mjs"
+    "brand:x-card": "node tools/render-x-launch-card.mjs",
+    "brand:ig-day1": "node tools/render-instagram-day1.mjs"
   }
 }

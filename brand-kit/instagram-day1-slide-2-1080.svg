@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" fill="none">
+  <defs>
+    <radialGradient id="gE" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 200) rotate(30) scale(900 900)">
+      <stop stop-color="#34D399" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gI" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 420) rotate(8) scale(980 980)">
+      <stop stop-color="#6366F1" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gF" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 760) rotate(-10) scale(1020 1020)">
+      <stop stop-color="#D946EF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#34D399"/>
+      <stop offset="0.5" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#D946EF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="#000000"/>
+  <rect width="1080" height="1080" fill="url(#gE)"/>
+  <rect width="1080" height="1080" fill="url(#gI)"/>
+  <rect width="1080" height="1080" fill="url(#gF)"/>
+
+  <rect x="56" y="56" width="968" height="968" rx="40" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.10)"/>
+
+  <g transform="translate(88 90)">
+    <circle cx="10" cy="10" r="4" fill="#34D399"/>
+    <text x="28" y="16" font-size="20" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="rgba(255,255,255,0.90)">
+      KryptaFlow
+    </text>
+    <text x="220" y="16" font-size="18" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="650" fill="rgba(255,255,255,0.60)">
+      The basics
+    </text>
+  </g>
+
+  <g transform="translate(88 200)">
+    <text x="0" y="0" font-size="58" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="900" fill="#FFFFFF" letter-spacing="-0.8">
+      Pre-launch facts
+    </text>
+    <text x="0" y="58" font-size="26" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.72)">
+      KFL on BSC: simple, transparent, investor-friendly
+    </text>
+  </g>
+
+  <g transform="translate(88 330)">
+    <rect x="0" y="0" width="900" height="3" fill="url(#line)" opacity="0.8"/>
+  </g>
+
+  <g transform="translate(88 390)">
+    <text x="0" y="0" font-size="26" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="#FFFFFF">
+      What to know
+    </text>
+    <text x="0" y="50" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.80)">
+      - 0% tax
+    </text>
+    <text x="0" y="90" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.80)">
+      - LP lock: 8 months (as published)
+    </text>
+    <text x="0" y="130" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.80)">
+      - KFL / USDT liquidity plan: on the site
+    </text>
+    <text x="0" y="170" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.80)">
+      - Contract: TBA
+    </text>
+  </g>
+
+  <g transform="translate(88 700)">
+    <rect x="0" y="0" width="900" height="200" rx="24" fill="rgba(0,0,0,0.40)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="32" y="64" font-size="20" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="rgba(255,255,255,0.90)">
+      Read the full breakdown
+    </text>
+    <text x="32" y="102" font-size="18" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="650" fill="rgba(255,255,255,0.60)">
+      Whitepaper + tokenomics on the official website
+    </text>
+    <text x="32" y="150" font-size="34" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="900" fill="#FFFFFF">
+      kryptaflow.com
+    </text>
+  </g>
+
+  <g transform="translate(88 1020)">
+    <text x="0" y="0" font-size="16" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="600" fill="rgba(255,255,255,0.50)">
+      Swipe: 2/3
+    </text>
+  </g>
+</svg>
