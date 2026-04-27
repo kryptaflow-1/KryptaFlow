@@ -1,13 +1,10 @@
 import Link from "next/link";
-import { CopyButton } from "@/app/components/CopyButton";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
-import { KRYPTAFLOW } from "@/app/generated/chain";
 import { siteConfig } from "@/app/siteConfig";
+import { WaitlistForm } from "@/app/components/WaitlistForm";
 
-const TOKEN_ADDRESS = KRYPTAFLOW.tokenAddress;
 const EXPLORER_URL = siteConfig.links.explorer;
-const RPC_URL = KRYPTAFLOW.rpcUrl;
 
 export default function Home() {
   return (
@@ -26,14 +23,14 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white/80 ring-1 ring-white/15">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Premium fintech-grade Web3 stack
+              Pre‑launch • {siteConfig.launch.network} • {siteConfig.launch.pair}
             </div>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
               A Revolut‑style launch experience for your EVM ecosystem.
             </h1>
             <p className="max-w-xl text-base text-white/70">
-              KryptaFlow pairs an EVM‑compatible token with explorer-first transparency and a demo app—so investors can
-              verify progress on-chain and users can onboard instantly.
+              KryptaFlow is building a clean, investor‑ready launch for KFL—designed for transparency, simple tokenomics,
+              and a community‑first rollout.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -59,6 +56,39 @@ export default function Home() {
               </Link>
             </div>
 
+            <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <div className="text-xs font-semibold text-white/60">Launch status</div>
+                  <div className="mt-1 text-lg font-semibold">KFL is coming soon on {siteConfig.launch.network}</div>
+                  <div className="mt-2 flex flex-wrap gap-2 text-xs text-white/70">
+                    <span className="rounded-full bg-black/40 px-3 py-1 ring-1 ring-white/10">Tax: {siteConfig.launch.tax}</span>
+                    <span className="rounded-full bg-black/40 px-3 py-1 ring-1 ring-white/10">LP lock: {siteConfig.tokenomics.lpLock.months} months</span>
+                    <span className="rounded-full bg-black/40 px-3 py-1 ring-1 ring-white/10">
+                      Start liquidity: ${siteConfig.launch.startingLiquidity.usdt} + {siteConfig.launch.startingLiquidity.kfl.toLocaleString()} KFL
+                    </span>
+                    <span className="rounded-full bg-black/40 px-3 py-1 ring-1 ring-white/10">
+                      Price: {siteConfig.launch.launchPriceUsdt} USDT
+                    </span>
+                  </div>
+                </div>
+                <a
+                  href={siteConfig.socials.telegram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/15 hover:bg-white/15"
+                >
+                  Join Telegram
+                </a>
+              </div>
+              <div className="mt-4">
+                <WaitlistForm toEmail={siteConfig.socials.email} />
+              </div>
+              <div className="mt-3 text-xs text-white/60">
+                Contract address: <span className="font-mono text-white/75">{siteConfig.launch.contractAddress ?? "TBA"}</span>
+              </div>
+            </div>
+
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
                 <div className="text-xs font-semibold text-white/60">Max supply</div>
@@ -73,24 +103,11 @@ export default function Home() {
                 <div className="mt-1 text-xl font-semibold">Blockscout</div>
               </div>
             </div>
-
-            <div className="text-xs text-white/60">
-              Demo endpoints: RPC <span className="font-mono">{RPC_URL}</span> • Explorer{" "}
-              <span className="font-mono">{EXPLORER_URL}</span>
-            </div>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(52,211,153,0.25),transparent_55%),radial-gradient(circle_at_90%_60%,rgba(217,70,239,0.18),transparent_55%)]" />
             <div className="relative">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-xs font-semibold text-white/60">KFL contract</div>
-                  <div className="mt-1 truncate font-mono text-sm text-white/85">{TOKEN_ADDRESS}</div>
-                </div>
-                <CopyButton value={TOKEN_ADDRESS} label="Copy" />
-              </div>
-
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl bg-black/40 p-5 ring-1 ring-white/10 kf-float">
                   <div className="text-xs font-semibold text-white/60">Wallet UX</div>
@@ -108,9 +125,9 @@ export default function Home() {
                   <div className="mt-1 text-sm text-white/70">Users test in seconds—no support tickets.</div>
                 </div>
                 <div className="rounded-2xl bg-black/40 p-5 ring-1 ring-white/10 kf-float">
-                  <div className="text-xs font-semibold text-white/60">Launch path</div>
-                  <div className="mt-1 text-lg font-semibold">Testnet → Mainnet</div>
-                  <div className="mt-1 text-sm text-white/70">A roadmap that looks credible to serious investors.</div>
+                  <div className="text-xs font-semibold text-white/60">Launch plan</div>
+                  <div className="mt-1 text-lg font-semibold">Community → Mainnet</div>
+                  <div className="mt-1 text-sm text-white/70">Clear milestones, no hype—just shipping.</div>
                 </div>
               </div>
             </div>
@@ -162,27 +179,6 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <h2 className="text-2xl font-semibold">KFL Tokenomics</h2>
             <p className="text-sm text-white/70">Clear, simple, and verifiable.</p>
-          </div>
-          <div className="flex flex-col gap-3 rounded-2xl bg-black/40 p-5 ring-1 ring-white/10 md:flex-row md:items-center md:justify-between">
-            <div className="min-w-0">
-              <div className="text-xs font-semibold text-white/60">Contract</div>
-              <div className="mt-1 truncate font-mono text-sm text-white/85">{TOKEN_ADDRESS}</div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                <CopyButton value={TOKEN_ADDRESS} label="Copy address" />
-                <a
-                  className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-3 py-1.5 text-xs font-semibold text-black hover:bg-emerald-400"
-                  href={`${EXPLORER_URL}/token/${TOKEN_ADDRESS}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View token
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <CopyButton value={RPC_URL} label="Copy RPC" />
-              <CopyButton value={EXPLORER_URL} label="Copy explorer" />
-            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl bg-black/40 p-5 ring-1 ring-white/10">

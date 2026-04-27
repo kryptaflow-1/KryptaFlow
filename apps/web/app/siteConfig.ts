@@ -1,6 +1,17 @@
 export const siteConfig = {
   name: "KryptaFlow",
   domain: "kryptaflow.com",
+  launch: {
+    network: "BSC",
+    pair: "KFL/USDT",
+    tax: "0%",
+    contractAddress: null as string | null,
+    launchPriceUsdt: 0.000003,
+    startingLiquidity: {
+      usdt: 300,
+      kfl: 100_000_000,
+    },
+  },
   tokenomics: {
     symbol: "KFL",
     maxSupply: 1_000_000_000,

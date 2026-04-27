@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/app/siteConfig";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,6 +16,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "KryptaFlow — EVM Chain + KFL Token",
   description: "A BSC-like EVM chain starter with Blockscout explorer, a faucet, and the KFL token.",
+  metadataBase: new URL(`https://${siteConfig.domain}`),
+  openGraph: {
+    title: "KryptaFlow — EVM Chain + KFL Token",
+    description: "Launch-ready EVM ecosystem experience for KryptaFlow (KFL).",
+    url: "/",
+    siteName: "KryptaFlow",
+    images: [{ url: "/brand/banner.svg" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KryptaFlow — EVM Chain + KFL Token",
+    description: "Launch-ready EVM ecosystem experience for KryptaFlow (KFL).",
+    images: ["/brand/banner.svg"],
+  },
   icons: {
     icon: "/icon.svg",
   },
