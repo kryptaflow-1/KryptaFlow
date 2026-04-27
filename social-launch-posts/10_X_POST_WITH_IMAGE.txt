@@ -1,0 +1,26 @@
+X (Twitter) — post with image (copy/paste)
+
+Image file (PNG) on your PC:
+C:\Users\surface\Desktop\KryptaFLow.com\brand-kit\x-launch-card-1600x900.png
+
+Public URL (after deploy):
+https://kryptaflow.com/brand/x-launch-card-1600x900.png
+
+Tweet text (English, professional)
+KryptaFlow website is now live: https://kryptaflow.com
+
+Pre-launch plan for $KFL on BSC:
+• 0% tax
+• LP lock: 8 months
+• Contract: TBA (official announcement + website only)
+
+Security: we will never DM you first. No “verification fees”.
+
+Hashtags (optional, keep small)
+#BSC #Crypto #KryptaFlow
+
+How to post on X
+1) Compose tweet
+2) Attach: x-launch-card-1600x900.png
+3) Paste tweet text
+4) Post
