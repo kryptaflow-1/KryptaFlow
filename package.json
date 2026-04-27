@@ -16,6 +16,7 @@
     "dev:all": "concurrently -n CHAIN,DEPLOY,WEB -c green,cyan,magenta \"npm run chain:node\" \"npm run chain:deploy\" \"npm run dev\"",
     "explorer:up": "docker compose -f explorer/docker-compose.yml up -d",
     "explorer:down": "docker compose -f explorer/docker-compose.yml down",
-    "brand:export": "node tools/export-brand-kit.mjs"
+    "brand:export": "node tools/export-brand-kit.mjs",
+    "brand:reddit": "node tools/render-reddit-banners.mjs"
   }
 }
