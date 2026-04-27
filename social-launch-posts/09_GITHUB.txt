@@ -1,0 +1,21 @@
+KryptaFlow — GitHub (README-friendly posts / release-style updates)
+
+Best practice
+- Keep the repo as “source of truth”
+- Post meaningful updates: website deploy, config changes, security notes
+
+Suggested monthly “update block” to paste in README (short)
+## Public updates
+- YYYY-MM-DD: Marketing site live at https://kryptaflow.com
+- YYYY-MM-DD: Added pre-launch CTA + SEO (sitemap/robots) on the website
+- YYYY-MM-DD: Contract: TBA (do not trust any other address)
+
+Release note example (if you use Releases)
+Title: website: pre-launch CTA + SEO
+Body:
+- Added pre-launch status section on the homepage
+- Added sitemap.xml and robots.txt
+- Official domain: kryptaflow.com
+
+What not to do
+- Don’t post private keys, API keys, or .env content

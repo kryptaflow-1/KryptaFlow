@@ -1,0 +1,33 @@
+KryptaFlow — TikTok (7 short video scripts, 10–20s)
+
+Video 1 — Hook
+“Crypto launch? Here’s the professional setup.”
+Show website on phone: kryptaflow.com
+CTA: “Contract is TBA — don’t buy random addresses.”
+
+Video 2 — Tokenomics
+“1B supply, published clearly.”
+Point to your whitepaper section on site.
+
+Video 3 — 0% tax
+“0% tax — say it with proof on the site.”
+CTA: “Read before hype.”
+
+Video 4 — LP lock
+“LP lock: 8 months. Trust is built, not claimed.”
+CTA: “Details on site.”
+
+Video 5 — Scams
+“Rule #1: if they DM you first, it’s a scam.”
+CTA: “Only official links.”
+
+Video 6 — Roadmap
+“What we are doing pre-launch (honest).”
+CTA: “We ship in public (GitHub + site).”
+
+Video 7 — Weekly update format
+“Week recap in 20 seconds: shipped / next / not shipping yet.”
+
+On-screen text suggestions (2 lines max)
+- “KryptaFlow (KFL)”
+- “kryptaflow.com”

@@ -1,0 +1,20 @@
+KryptaFlow — Telegram (channel-style announcements; short + official)
+
+Template A — Pinned / weekly reminder
+OFFICIAL LINKS
+Website: https://kryptaflow.com
+X: https://x.com/kryptaflow
+GitHub: https://github.com/kryptaflow-1/KryptaFlow
+Contract: TBA
+Security: We never DM you first. No “airdrop fee”. No “send BNB to verify”.
+
+Template B — Update post
+KryptaFlow update:
+- Pre-launch phase active
+- Website: https://kryptaflow.com
+- KFL: 1B max supply, 0% tax, KFL/USDT pair planned, LP lock 8 months
+Next update: (write your real next milestone)
+
+Template C — Scam alert (short)
+If someone DMs you claiming to be KryptaFlow support, it is a SCAM.
+Official links are only in our pinned post + website.

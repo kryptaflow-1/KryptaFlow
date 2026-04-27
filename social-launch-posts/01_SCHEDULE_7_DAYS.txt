@@ -1,0 +1,11 @@
+7-day “starter” sequence (1 post per day, all platforms can reuse same core message; tweak length per platform)
+
+Day 1 — Live website + what KryptaFlow is
+Day 2 — KFL tokenomics (1B, distribution headline)
+Day 3 — 0% tax + LP lock (8 months) + KFL/USDT (facts only)
+Day 4 — Scam-safety: official links, contract TBA, no DMs
+Day 5 — Roadmap: what you’re working on pre-launch (be honest, no overpromise)
+Day 6 — Q&A: answer 3 common questions
+Day 7 — Weekly recap + next week target
+
+If you can only do 3 posts/week, pick Day 1, Day 3, Day 4.

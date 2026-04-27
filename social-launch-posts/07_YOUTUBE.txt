@@ -1,0 +1,23 @@
+KryptaFlow — YouTube (community post + 1 “intro” video script)
+
+Community post (first)
+KryptaFlow (KFL) — official links:
+Website: https://kryptaflow.com
+X: https://x.com/kryptaflow
+Telegram: https://t.me/kryptaflow
+GitHub: https://github.com/kryptaflow-1/KryptaFlow
+Contract: TBA
+
+6-minute intro video outline
+0:00 What is KryptaFlow
+1:00 The problem: messy launches, unclear tokenomics
+2:00 KFL basics: 1B, distribution headline
+3:00 0% tax, KFL/USDT plan, LP lock 8 months (facts from site/whitepaper)
+4:00 Pre-launch vs post-launch
+5:00 Security: official links, no DMs, contract TBA
+5:30 CTA: follow website + Telegram for official updates
+
+Upload checklist
+Title: KryptaFlow (KFL) — Official Intro + What Happens Pre‑Launch
+Description: include official links + “Contract: TBA”
+Pinned comment: “Official links only. No support via DMs.”

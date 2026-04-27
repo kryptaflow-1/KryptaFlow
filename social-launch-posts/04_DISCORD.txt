@@ -1,0 +1,19 @@
+KryptaFlow — Discord (server rules + #announcements posts)
+
+#rules text (post once, pin)
+Welcome to KryptaFlow
+Official links: https://kryptaflow.com
+No financial advice. Crypto is high risk.
+No DM support. Admins will not DM you first.
+No fake contracts. Contract is TBA until published officially.
+Report scams immediately.
+
+#announcements template
+Title: [UPDATE] KryptaFlow — pre-launch
+Body:
+We’re building toward KFL on BSC with 0% tax, KFL/USDT liquidity, and 8 month LP lock (details in whitepaper/website).
+Website: https://kryptaflow.com
+Contract: TBA
+
+Quick weekly message
+Weekly recap: what we shipped, what’s next, what we did NOT do (honesty builds trust).

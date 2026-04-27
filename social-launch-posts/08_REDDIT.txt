@@ -1,0 +1,24 @@
+KryptaFlow — Reddit (be careful: avoid spam, focus on value + transparency)
+
+Profile pinned post
+Title: Official KryptaFlow Links (KFL) — Read First
+Body:
+I’m with KryptaFlow (KFL). Pre-launch / building in public.
+Official website: https://kryptaflow.com
+X: https://x.com/kryptaflow
+Telegram: https://t.me/kryptaflow
+GitHub: https://github.com/kryptaflow-1/KryptaFlow
+Contract: TBA. If you see a contract, assume it is fake until posted on the official site.
+I won’t DM you for money, seed phrases, or “verification fees”.
+
+Value post (good for r/BSC, r/CryptoCurrency if allowed, etc.)
+Title: How we’re approaching a BSC token launch (transparency + LP lock) — KryptaFlow
+Body (short):
+I’m not here to shill. We published tokenomics and launch parameters on the website.
+Key points: 1B supply, 0% tax, planned KFL/USDT LP, 8 month LP lock.
+I’m happy to answer questions; I will only share what’s already on kryptaflow.com.
+
+What NOT to do on Reddit
+- Don’t post the same link across many subreddits in one day
+- Don’t use “to the moon” type spam
+- Read each subreddit rules first
