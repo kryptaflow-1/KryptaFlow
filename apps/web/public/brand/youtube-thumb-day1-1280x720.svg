@@ -26,43 +26,45 @@
 
   <rect x="64" y="64" width="1152" height="592" rx="38" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.10)"/>
 
-  <g transform="translate(120 120)">
+  <!-- Top row only: brand + day label (keep clear of hero text below) -->
+  <g transform="translate(120 88)">
     <circle cx="10" cy="10" r="5" fill="#34D399"/>
-    <text x="30" y="20" font-size="26" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="900" fill="rgba(255,255,255,0.92)">
+    <text x="30" y="20" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="900" fill="rgba(255,255,255,0.92)">
       KryptaFlow
     </text>
-    <text x="210" y="20" font-size="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="rgba(255,255,255,0.65)">
+    <text x="200" y="20" font-size="20" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="rgba(255,255,255,0.65)">
       Day 1 Launch
     </text>
   </g>
 
-  <g transform="translate(120 200)">
-    <text x="0" y="0" font-size="86" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="950" fill="#FFFFFF" letter-spacing="-1.2">
+  <!-- Hero: baseline low enough that large glyphs do not overlap header (~y 70-118) -->
+  <g transform="translate(120 228)">
+    <text x="0" y="0" font-size="70" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="950" fill="#FFFFFF" letter-spacing="-1.0">
       Official site is live
     </text>
-    <text x="0" y="78" font-size="34" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="750" fill="rgba(255,255,255,0.76)">
-      KFL " Security-first messaging " Transparent tokenomics
+    <text x="0" y="64" font-size="30" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="750" fill="rgba(255,255,255,0.76)">
+      KFL • Security-first messaging • Transparent tokenomics
     </text>
   </g>
 
-  <g transform="translate(120 374)">
+  <g transform="translate(120 386)">
     <rect x="0" y="0" width="1040" height="4" fill="url(#line)" opacity="0.85"/>
-    <text x="0" y="48" font-size="30" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="rgba(255,255,255,0.86)">
+    <text x="0" y="48" font-size="28" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="800" fill="rgba(255,255,255,0.86)">
       Pre-launch hub online now
     </text>
-    <text x="0" y="88" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.72)">
+    <text x="0" y="86" font-size="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" fill="rgba(255,255,255,0.72)">
       Not financial advice. Verify official links yourself.
     </text>
   </g>
 
-  <g transform="translate(120 560)">
+  <g transform="translate(120 556)">
     <rect x="0" y="0" width="720" height="88" rx="18" fill="rgba(0,0,0,0.40)" stroke="rgba(255,255,255,0.12)"/>
     <text x="28" y="58" font-size="40" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="950" fill="#FFFFFF" letter-spacing="-0.2">
       kryptaflow.com
     </text>
   </g>
 
-  <g transform="translate(920 540)">
+  <g transform="translate(920 536)">
     <rect x="0" y="0" width="230" height="108" rx="22" fill="rgba(52,211,153,0.10)" stroke="rgba(52,211,153,0.28)"/>
     <text x="22" y="44" font-size="18" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="900" fill="#FFFFFF">
       Short
