@@ -7,7 +7,8 @@ Vertical slides for TikTok / Instagram Reels (1080×1920 PNG)
 - tiktok-day1-slide-2-1080x1920.png
 - tiktok-day1-slide-3-1080x1920.png
 
-Vertical short video (12s, 1080×1920, H.264 + silent AAC track)
+Vertical short video (~12s, 1080×1920, H.264 + silent AAC track). Each slide uses a slow Ken Burns zoom + 0.5s crossfades between slides (not a static slideshow).
+
 - tiktok-day1-short-12s-1080x1920.mp4
 
 YouTube thumbnail (1280×720 PNG) — for the Short or a regular video page

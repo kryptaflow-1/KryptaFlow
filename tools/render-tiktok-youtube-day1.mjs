@@ -23,7 +23,13 @@ const ytSvg = "youtube-thumb-day1-1280x720.svg";
 const ytWidth = 1280;
 const ytHeight = 720;
 
-const SLIDE_SECONDS = 4;
+/** Per-slide animation length (Ken Burns ~ slow zoom); 130f @30fps ≈ 4.333s */
+const SLIDE_FRAMES = 130;
+const FPS = 30;
+/** Crossfade between slides (must be < slide duration in seconds) */
+const XFADE_SEC = 0.5;
+
+const slideSec = SLIDE_FRAMES / FPS;
 
 async function assertFfmpegAvailable() {
   await execFileAsync("ffmpeg", ["-version"], { windowsHide: true });
@@ -40,14 +46,19 @@ async function renderPng(inputSvg, width, height, outPng) {
   await fs.writeFile(outPng, png);
 }
 
-async function writeConcatList(partPaths, concatPath) {
-  const body = partPaths
-    .map((p) => {
-      const normalized = p.replace(/\\/g, "/");
-      return `file '${normalized}'`;
-    })
-    .join("\n");
-  await fs.writeFile(concatPath, `${body}\n`, "utf8");
+function zoompanForSlide(index) {
+  const zStep = index === 1 ? "0.00085" : index === 2 ? "0.00075" : "0.00092";
+  const maxZ = index === 1 ? "1.14" : index === 2 ? "1.12" : "1.15";
+  const xe = index === 2 ? "iw*0.52-(iw/zoom/2)" : "iw/2-(iw/zoom/2)";
+  const ye = "ih/2-(ih/zoom/2)";
+  /** Comma in min() must be escaped for the filter graph parser */
+  const zExpr = `min(zoom+${zStep}\\,${maxZ})`;
+  return [
+    "scale=2160:3840:flags=lanczos",
+    `zoompan=z='${zExpr}':d=${SLIDE_FRAMES}:x=${xe}:y=${ye}:s=${tiktokWidth}x${tiktokHeight}:fps=${FPS}`,
+    "format=yuv420p",
+    "eq=contrast=1.04:saturation=1.06",
+  ].join(",");
 }
 
 async function main() {
@@ -90,7 +101,6 @@ async function main() {
   console.log(`Wrote: ${path.relative(root, ytOutPublicPng)}`);
   console.log(`Wrote: ${path.relative(root, ytOutPublicSvg)}`);
 
-  const concatNoAudio = path.join(tmpRoot, "tiktok-day1-concat-noaudio.mp4");
   const finalName = "tiktok-day1-short-12s-1080x1920.mp4";
   const finalBrand = path.join(root, "brand-kit", finalName);
   const finalPublic = path.join(root, "apps", "web", "public", "brand", finalName);
@@ -99,6 +109,8 @@ async function main() {
   for (let i = 0; i < tiktokPngs.length; i++) {
     const part = path.join(tmpRoot, `part-${i + 1}.mp4`);
     partPaths.push(part);
+
+    const vf = zoompanForSlide(i + 1);
 
     await execFileAsync(
       "ffmpeg",
@@ -109,27 +121,60 @@ async function main() {
         "-i",
         tiktokPngs[i],
         "-vf",
-        "fps=30,scale=1080:1920:flags=lanczos,format=yuv420p",
-        "-t",
-        String(SLIDE_SECONDS),
+        vf,
+        "-frames:v",
+        String(SLIDE_FRAMES),
         "-c:v",
         "libx264",
+        "-preset",
+        "slow",
+        "-crf",
+        "20",
         "-pix_fmt",
         "yuv420p",
         "-r",
-        "30",
+        String(FPS),
         part,
       ],
       { windowsHide: true },
     );
   }
 
-  const concatListPath = path.join(tmpRoot, "concat.txt");
-  await writeConcatList(partPaths, concatListPath);
+  const offset1 = slideSec - XFADE_SEC;
+  const afterFirst = slideSec * 2 - XFADE_SEC;
+  const offset2 = afterFirst - XFADE_SEC;
+
+  const filterComplex = [
+    `[0:v][1:v]xfade=transition=fade:duration=${XFADE_SEC}:offset=${offset1.toFixed(6)}[v01]`,
+    `[v01][2:v]xfade=transition=fade:duration=${XFADE_SEC}:offset=${offset2.toFixed(6)}[vout]`,
+  ].join(";");
+
+  const xfadeOut = path.join(tmpRoot, "xfade.mp4");
 
   await execFileAsync(
     "ffmpeg",
-    ["-y", "-f", "concat", "-safe", "0", "-i", concatListPath, "-c", "copy", concatNoAudio],
+    [
+      "-y",
+      "-i",
+      partPaths[0],
+      "-i",
+      partPaths[1],
+      "-i",
+      partPaths[2],
+      "-filter_complex",
+      filterComplex,
+      "-map",
+      "[vout]",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "slow",
+      "-crf",
+      "20",
+      "-pix_fmt",
+      "yuv420p",
+      xfadeOut,
+    ],
     { windowsHide: true },
   );
 
@@ -138,7 +183,7 @@ async function main() {
     [
       "-y",
       "-i",
-      concatNoAudio,
+      xfadeOut,
       "-f",
       "lavfi",
       "-i",
