@@ -1,0 +1,40 @@
+How to post the “website live” announcement (step-by-step)
+
+1) Use the master copy
+Open: 20_ANNOUNCEMENT_MASTER_COPY.txt
+
+2) Discord — what to upload (text)
+Open: 22_DISCORD_WEBSITE_LIVE.txt
+How to post:
+- Open your Discord server
+- Go to #announcements (recommended) OR #general (if you don’t have announcements yet)
+- Paste the Discord message (start with the “Headline” section)
+- Hit Send
+- Right click the message -> Pin message (admins only)
+
+Optional (looks more professional):
+Create channels:
+- #announcements (read-only for normal users)
+- #official-links (pinned)
+And set slowmode (e.g., 10–30s) in public chat channels.
+
+3) Reddit — what to upload (text post)
+Open: 23_REDDIT_WEBSITE_LIVE_POST.txt
+How to post:
+- Open Reddit
+- Prefer: your own profile post OR a relevant subreddit ONLY if their rules allow promotions
+- Paste text
+- IMPORTANT: read subreddit rules — many ban “self promo”
+
+4) GitHub — “announcement” style update
+Open: 24_GITHUB_WEBSITE_LIVE.txt
+How to do it:
+Option A (recommended): update repo README “Public updates” section
+Option B: create a GitHub Release with notes (optional)
+
+5) YouTube — community post
+Open: 25_YOUTUBE_COMMUNITY_POST.txt
+How to post:
+- YouTube Studio -> Community tab (available if your channel unlocks it)
+- Paste the short post
+- Pin if available

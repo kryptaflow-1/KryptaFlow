@@ -1,0 +1,30 @@
+GitHub — WEBSITE LIVE update (what to “upload” / what to change)
+
+What to upload on GitHub?
+GitHub is not like Instagram. You typically don’t “upload an image post”. You do one of these:
+
+Option A (best for trust): Update README.md “Public updates” section
+Paste this block into the root README.md (or add a new section if missing):
+
+## Public updates
+- Website live: https://kryptaflow.com
+- Pre-launch messaging: KFL planned on BSC; 0% tax; LP lock 8 months; contract TBA until official announcement
+- Official socials:
+  - X: https://x.com/kryptaflow
+  - Telegram: https://t.me/kryptaflow
+  - Discord: https://discord.gg/V967c7qsU
+  - YouTube: https://www.youtube.com/@KryptaFlow
+
+How to publish the change (GitHub website)
+1) Open repo: https://github.com/kryptaflow-1/KryptaFlow
+2) Click README.md -> pencil Edit
+3) Paste the section
+4) Commit changes -> Commit to main
+
+Option B (optional): Create a GitHub Release note
+GitHub repo -> Releases -> Draft a new release
+Tag example: website-live-2026-04-27
+Notes: paste same summary as above
+
+Security note
+Never commit `.env`, private keys, mnemonics, or secrets.

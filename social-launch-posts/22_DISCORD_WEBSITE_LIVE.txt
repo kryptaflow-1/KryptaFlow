@@ -1,0 +1,34 @@
+Discord — WEBSITE LIVE announcement (paste into #announcements)
+
+Formatting tip
+Discord supports markdown with **bold** lines.
+
+Message (copy/paste)
+
+**KryptaFlow Website is LIVE**
+
+We’ve published the official KryptaFlow web hub:
+**https://kryptaflow.com**
+
+**What this means**
+This is our primary place for investor-facing narrative, docs entry points, and verified launch status.
+
+**Pre-launch facts (consistent messaging)**
+- Planned network: **BSC**
+- Pair: **KFL/USDT** (published on the website)
+- Tax: **0%**
+- LP lock: **8 months** (published on the website)
+- **Contract: TBA** (only trust official announcements + the website)
+
+**Official links**
+- Website: https://kryptaflow.com
+- X: https://x.com/kryptaflow
+- Telegram: https://t.me/kryptaflow
+- Reddit: https://www.reddit.com/user/Kryptaflow/
+- GitHub: https://github.com/kryptaflow-1/KryptaFlow
+- YouTube: https://www.youtube.com/@KryptaFlow
+
+**Security (read carefully)**
+We will **never** DM you first.
+There is **no** fee to “verify”, **no** wallet syncing, **no** “send BNB/USDT” to receive tokens early.
+Assume any contract posted outside official channels is **fake** until we announce it publicly.

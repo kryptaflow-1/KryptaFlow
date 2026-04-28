@@ -1,0 +1,37 @@
+Reddit — WEBSITE LIVE post template (use carefully; follow subreddit rules)
+
+Suggested title
+[Official] KryptaFlow website is now live (pre-launch details + security note)
+
+Post body (copy/paste)
+Hi everyone — sharing an official update for transparency.
+
+**Official website (source of truth):** https://kryptaflow.com
+
+**What we’re building**
+KryptaFlow (KFL) is in a **pre-launch** phase. We’re prioritizing clear tokenomics, credible launch planning, and security messaging.
+
+**Facts (as published on the website)**
+- Planned network: **BSC**
+- Pair: **KFL/USDT**
+- Tax: **0%**
+- LP lock: **8 months**
+- **Contract: TBA**
+
+**Official links**
+- X: https://x.com/kryptaflow
+- Telegram: https://t.me/kryptaflow
+- Discord: https://discord.gg/V967c7qsU
+- GitHub: https://github.com/kryptaflow-1/KryptaFlow
+- YouTube: https://www.youtube.com/@KryptaFlow
+
+**Security**
+I will not DM you asking for money or seed phrases.
+Treat any “contract address” as **fake** until it appears on **https://kryptaflow.com** + an official announcement.
+
+**Disclaimer**
+Not financial advice. Crypto is risky. Do your own research.
+
+Notes
+- If a subreddit removes the post, don’t argue—read their rules.
+- Best subreddits vary; start with your own profile post if unsure.

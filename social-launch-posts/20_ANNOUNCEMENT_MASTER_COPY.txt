@@ -1,0 +1,27 @@
+KryptaFlow — WEBSITE LIVE (Day 1) — MASTER ANNOUNCEMENT (English)
+
+Short headline options (pick one)
+- KryptaFlow website is live
+- Official KryptaFlow site is live: kryptaflow.com
+
+Core facts (always keep consistent)
+- Pre-launch: KFL planned on BSC
+- Pair: KFL/USDT (as published on-site)
+- Tax: 0%
+- LP lock: 8 months (as published on-site)
+- Contract: TBA until official announcement
+- Official website is the source of truth: https://kryptaflow.com
+
+Official links (only trust these)
+- Website: https://kryptaflow.com
+- X: https://x.com/kryptaflow
+- Telegram (announcements/channel): https://t.me/kryptaflow
+- Discord invite: https://discord.gg/V967c7qsU
+- Reddit profile: https://www.reddit.com/user/Kryptaflow/
+- GitHub repo: https://github.com/kryptaflow-1/KryptaFlow
+- YouTube: https://www.youtube.com/@KryptaFlow
+
+Security (repeat weekly)
+We will NEVER DM you first.
+No fees to verify, no wallet “sync”, no seed phrases.
+Assume any contract address is fake until announced on https://kryptaflow.com + official posts.
