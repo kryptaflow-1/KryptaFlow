@@ -52,7 +52,14 @@ npm install
 npm run chain:node
 ```
 
-This will print local accounts + private keys and start an RPC at `http://127.0.0.1:8545`.
+This will print **local-dev only** accounts + private keys and start an RPC at `http://127.0.0.1:8545`.
+
+### Local-wallet safety (important)
+
+- **Never send real ETH/BNB/USDT** to these addresses. Treat them like disposable test wallets.
+- **Never reuse** printed local private keys / seed phrases for **mainnet** wallets.
+- Each Ganache restart now uses a **fresh random mnemonic** (no fixed phrase in repo). Old Git commits may still contain a removed dev mnemonic in history — anyone who reused those keys elsewhere should migrate funds to a **new** wallet generated offline.
+
 
 ## Run the block explorer (Blockscout)
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "node": "ganache --server.host 127.0.0.1 --server.port 8545 --chain.chainId 31337 --wallet.totalAccounts 10 --wallet.defaultBalance 1000 --wallet.mnemonic \"mention slow width peasant teach hamster coconut uncle pluck seat risk nature\"",
+    "node": "ganache --server.host 127.0.0.1 --server.port 8545 --chain.chainId 31337 --wallet.totalAccounts 10 --wallet.defaultBalance 1000",
     "deploy": "hardhat run scripts/deploy.ts --network localhost"
   },
   "keywords": [],
