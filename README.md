@@ -2,6 +2,34 @@
 
 Local, BSC-like starter: **your own EVM chain** + a **Next.js website** that connects MetaMask and sends transactions.
 
+## Public status (official)
+
+**Investor / community hub (source of truth):** [kryptaflow.com](https://kryptaflow.com)
+
+KryptaFlow (KFL) is in **pre-launch**. Messaging on the site prioritises clear tokenomics and security. **Contract address: TBA** until published through official channels and on the site — do not trust random contracts.
+
+| Topic | Summary (see site for full detail) |
+|--------|-------------------------------------|
+| Planned network | BSC |
+| Pair (published on-site) | KFL/USDT |
+| Tax | 0% |
+| LP lock | 8 months |
+| Contract | **TBA** |
+
+**Official links**
+
+- X: https://x.com/kryptaflow  
+- Telegram: https://t.me/kryptaflow  
+- Discord: https://discord.gg/V967c7qsU  
+- Reddit: https://www.reddit.com/user/Kryptaflow/  
+- YouTube: https://www.youtube.com/@KryptaFlow  
+
+**Security:** we will not DM you first asking for money, seed phrases, or “verification fees”. Treat any contract shared outside official announcements as **fake** until it appears on [kryptaflow.com](https://kryptaflow.com).
+
+*Not financial advice. Crypto is risky.*
+
+---
+
 ## Prerequisites
 
 - Node.js (LTS recommended)
