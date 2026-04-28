@@ -18,10 +18,13 @@ KryptaFlow (KFL) is in **pre-launch**. Messaging on the site prioritises clear t
 
 **Official links**
 
+- GitHub (source code): https://github.com/kryptaflow-1/KryptaFlow  
 - X: https://x.com/kryptaflow  
 - Telegram: https://t.me/kryptaflow  
 - Discord: https://discord.gg/V967c7qsU  
 - Reddit: https://www.reddit.com/user/Kryptaflow/  
+- Instagram: https://www.instagram.com/kryptaflow1/  
+- TikTok: https://www.tiktok.com/@kryptaflow.com  
 - YouTube: https://www.youtube.com/@KryptaFlow  
 
 **Security:** we will not DM you first asking for money, seed phrases, or “verification fees”. Treat any contract shared outside official announcements as **fake** until it appears on [kryptaflow.com](https://kryptaflow.com).

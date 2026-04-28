@@ -31,7 +31,3 @@ Treat any “contract address” as **fake** until it appears on **https://krypt
 
 **Disclaimer**
 Not financial advice. Crypto is risky. Do your own research.
-
-Notes
-- If a subreddit removes the post, don’t argue—read their rules.
-- Best subreddits vary; start with your own profile post if unsure.
