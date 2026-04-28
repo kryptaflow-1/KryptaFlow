@@ -16,28 +16,42 @@ const tiktokSvgs = [
   "tiktok-day1-slide-3-1080x1920.svg",
 ];
 
+/** Exported PNG slides for IG/web (readable file size). */
 const tiktokWidth = 1080;
 const tiktokHeight = 1920;
+
+/** Hi-res renders for video only — sharper zoom + sharper final encode at 1080×1920. */
+const videoPngWidth = 2160;
+const videoPngHeight = 3840;
 
 const ytSvg = "youtube-thumb-day1-1280x720.svg";
 const ytWidth = 1280;
 const ytHeight = 720;
 
-/** Per-slide animation length (Ken Burns ~ slow zoom); 130f @30fps ≈ 4.333s */
+/** Optional MP3 stereo background (replace synth bed): brand-kit/short-bgm-override.mp3 */
+const MUSIC_OVERRIDE_BASENAME = "short-bgm-override.mp3";
+
+/** Per-slide animation length (Ken Burns); 130f @30fps ≈ 4.333s */
 const SLIDE_FRAMES = 130;
 const FPS = 30;
-/** Crossfade between slides (must be < slide duration in seconds) */
 const XFADE_SEC = 0.5;
 
 const slideSec = SLIDE_FRAMES / FPS;
+
+const X264_QUALITY = {
+  /** Intermediates — keep fairly high before xfade (still decoded once). */
+  part: ["-crf", "16", "-preset", "slower"],
+  /** Concat output — maximize quality for YouTube / TikTok re-encode margins. */
+  xfade: ["-crf", "15", "-preset", "slower", "-tune", "stillimage"],
+};
 
 async function assertFfmpegAvailable() {
   await execFileAsync("ffmpeg", ["-version"], { windowsHide: true });
 }
 
-async function renderPng(inputSvg, width, height, outPng) {
+async function renderPng(inputSvg, width, height, outPng, density = 340) {
   const svg = await fs.readFile(inputSvg);
-  const png = await sharp(svg, { density: 300 })
+  const png = await sharp(svg, { density })
     .resize({ width, height, fit: "fill" })
     .png({ compressionLevel: 9, adaptiveFiltering: true })
     .toBuffer();
@@ -51,14 +65,61 @@ function zoompanForSlide(index) {
   const maxZ = index === 1 ? "1.14" : index === 2 ? "1.12" : "1.15";
   const xe = index === 2 ? "iw*0.52-(iw/zoom/2)" : "iw/2-(iw/zoom/2)";
   const ye = "ih/2-(ih/zoom/2)";
-  /** Comma in min() must be escaped for the filter graph parser */
   const zExpr = `min(zoom+${zStep}\\,${maxZ})`;
   return [
-    "scale=2160:3840:flags=lanczos",
+    "scale=4320:7680:flags=lanczos",
     `zoompan=z='${zExpr}':d=${SLIDE_FRAMES}:x=${xe}:y=${ye}:s=${tiktokWidth}x${tiktokHeight}:fps=${FPS}`,
     "format=yuv420p",
-    "eq=contrast=1.04:saturation=1.06",
+    "eq=contrast=1.05:saturation=1.06",
   ].join(",");
+}
+
+async function tryStat(p) {
+  try {
+    await fs.stat(p);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function buildAmbientBed(outWav) {
+  const filter = [
+    "[0:a][1:a][2:a]amix=inputs=3:duration=shortest[chord]",
+    "[3:a][chord]amix=inputs=2:duration=shortest:weights=1 24[m]",
+    "[m]volume=-15dB,afade=t=in:st=0:d=0.6,afade=t=out:st=11:d=2[out]",
+  ].join(";");
+
+  await execFileAsync(
+    "ffmpeg",
+    [
+      "-y",
+      "-f",
+      "lavfi",
+      "-i",
+      "sine=frequency=261.626:duration=14:sample_rate=44100",
+      "-f",
+      "lavfi",
+      "-i",
+      "sine=frequency=329.628:duration=14:sample_rate=44100",
+      "-f",
+      "lavfi",
+      "-i",
+      "sine=frequency=392:duration=14:sample_rate=44100",
+      "-f",
+      "lavfi",
+      "-i",
+      "anoisesrc=color=pink:d=14:sample_rate=44100:a=0.01",
+      "-filter_complex",
+      filter,
+      "-map",
+      "[out]",
+      "-t",
+      "13",
+      outWav,
+    ],
+    { windowsHide: true },
+  );
 }
 
 async function main() {
@@ -66,9 +127,11 @@ async function main() {
 
   const tmpRoot = await fs.mkdtemp(path.join(os.tmpdir(), "kryptaflow-tiktok-day1-"));
 
-  const tiktokPngs = [];
+  /** Absolute paths — hi-res sources for FFmpeg only */
+  const videoPngPaths = [];
 
-  for (const name of tiktokSvgs) {
+  for (let idx = 0; idx < tiktokSvgs.length; idx++) {
+    const name = tiktokSvgs[idx];
     const inputSvg = path.join(root, "brand-kit", name);
     const outBrandKitPng = path.join(root, "brand-kit", name.replace(".svg", ".png"));
     const outPublicPng = path.join(root, "apps", "web", "public", "brand", name.replace(".svg", ".png"));
@@ -77,11 +140,13 @@ async function main() {
     await fs.mkdir(path.dirname(outBrandKitPng), { recursive: true });
     await fs.mkdir(path.dirname(outPublicPng), { recursive: true });
 
-    await renderPng(inputSvg, tiktokWidth, tiktokHeight, outBrandKitPng);
-    await renderPng(inputSvg, tiktokWidth, tiktokHeight, outPublicPng);
+    await renderPng(inputSvg, tiktokWidth, tiktokHeight, outBrandKitPng, 340);
+    await renderPng(inputSvg, tiktokWidth, tiktokHeight, outPublicPng, 340);
     await fs.copyFile(inputSvg, outPublicSvg);
 
-    tiktokPngs.push(outBrandKitPng);
+    const hiPng = path.join(tmpRoot, `${name.replace(".svg", "")}-2160.png`);
+    await renderPng(inputSvg, videoPngWidth, videoPngHeight, hiPng, 400);
+    videoPngPaths.push(hiPng);
 
     console.log(`Wrote: ${path.relative(root, outBrandKitPng)}`);
     console.log(`Wrote: ${path.relative(root, outPublicPng)}`);
@@ -93,8 +158,8 @@ async function main() {
   const ytOutPublicPng = path.join(root, "apps", "web", "public", "brand", ytSvg.replace(".svg", ".png"));
   const ytOutPublicSvg = path.join(root, "apps", "web", "public", "brand", ytSvg);
 
-  await renderPng(ytInput, ytWidth, ytHeight, ytOutBrand);
-  await renderPng(ytInput, ytWidth, ytHeight, ytOutPublicPng);
+  await renderPng(ytInput, ytWidth, ytHeight, ytOutBrand, 340);
+  await renderPng(ytInput, ytWidth, ytHeight, ytOutPublicPng, 340);
   await fs.copyFile(ytInput, ytOutPublicSvg);
 
   console.log(`Wrote: ${path.relative(root, ytOutBrand)}`);
@@ -106,7 +171,7 @@ async function main() {
   const finalPublic = path.join(root, "apps", "web", "public", "brand", finalName);
 
   const partPaths = [];
-  for (let i = 0; i < tiktokPngs.length; i++) {
+  for (let i = 0; i < videoPngPaths.length; i++) {
     const part = path.join(tmpRoot, `part-${i + 1}.mp4`);
     partPaths.push(part);
 
@@ -119,17 +184,14 @@ async function main() {
         "-loop",
         "1",
         "-i",
-        tiktokPngs[i],
+        videoPngPaths[i],
         "-vf",
         vf,
         "-frames:v",
         String(SLIDE_FRAMES),
         "-c:v",
         "libx264",
-        "-preset",
-        "slow",
-        "-crf",
-        "20",
+        ...X264_QUALITY.part,
         "-pix_fmt",
         "yuv420p",
         "-r",
@@ -167,10 +229,7 @@ async function main() {
       "[vout]",
       "-c:v",
       "libx264",
-      "-preset",
-      "slow",
-      "-crf",
-      "20",
+      ...X264_QUALITY.xfade,
       "-pix_fmt",
       "yuv420p",
       xfadeOut,
@@ -178,23 +237,42 @@ async function main() {
     { windowsHide: true },
   );
 
+  const overridePath = path.join(root, "brand-kit", MUSIC_OVERRIDE_BASENAME);
+  const bedWav = path.join(tmpRoot, "ambient-bed.wav");
+
+  /** @type {string | null} */
+  let audioIn = null;
+
+  const usedOverride = await tryStat(overridePath);
+
+  if (usedOverride) {
+    audioIn = overridePath;
+  } else {
+    await buildAmbientBed(bedWav);
+    audioIn = bedWav;
+  }
+
   await execFileAsync(
     "ffmpeg",
     [
       "-y",
       "-i",
       xfadeOut,
-      "-f",
-      "lavfi",
       "-i",
-      "anullsrc=channel_layout=stereo:sample_rate=44100",
+      audioIn,
+      "-map",
+      "0:v",
+      "-map",
+      "1:a",
       "-shortest",
       "-c:v",
       "copy",
       "-c:a",
       "aac",
       "-b:a",
-      "128k",
+      "192k",
+      "-ac",
+      "2",
       finalBrand,
     ],
     { windowsHide: true },
@@ -205,6 +283,11 @@ async function main() {
 
   console.log(`Wrote: ${path.relative(root, finalBrand)}`);
   console.log(`Wrote: ${path.relative(root, finalPublic)}`);
+  console.log(
+    usedOverride
+      ? `Music: brand-kit/${MUSIC_OVERRIDE_BASENAME}`
+      : "Music: generated ambient chord + pink-noise bed (royalty-safe).",
+  );
 
   await fs.rm(tmpRoot, { recursive: true, force: true });
 }
