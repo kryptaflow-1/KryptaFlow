@@ -22,7 +22,6 @@ const KRYPTAFLOW_CHAIN_ID_HEX = KRYPTAFLOW.chainIdHex;
 const KRYPTAFLOW_RPC_URL = KRYPTAFLOW.rpcUrl;
 const KFL_TOKEN_ADDRESS = KRYPTAFLOW.tokenAddress;
 const EXPLORER_BASE_URL = "http://localhost:4000";
-const TREASURY_ADDRESS = "0x6b7c3BaDb5B873f43369e2B484BA0d94A0bc939F";
 const GAS_SYMBOL = "KRY";
 
 const KFL_ABI = [
@@ -31,7 +30,7 @@ const KFL_ABI = [
   "function balanceOf(address) view returns (uint256)",
   "function transfer(address to, uint256 value) returns (bool)",
   "function mint(address to, uint256 value) returns (bool)",
-  "function claim() returns (bool)",
+  "function owner() view returns (address)",
   "event Transfer(address indexed from, address indexed to, uint256 value)",
 ];
 
@@ -71,6 +70,7 @@ export default function DAppPage() {
   const [treasuryTo, setTreasuryTo] = useState<string>("");
   const [treasuryAmount, setTreasuryAmount] = useState<string>("1000000");
   const [savedNormalAddress, setSavedNormalAddress] = useState<string>("");
+  const [ownerAddr, setOwnerAddr] = useState<string>("");
 
   const [recentTransfers, setRecentTransfers] = useState<TransferItem[]>([]);
 
@@ -79,11 +79,13 @@ export default function DAppPage() {
   }
 
   function isTreasurySelected() {
-    return (address || "").toLowerCase() === TREASURY_ADDRESS.toLowerCase();
+    if (!ownerAddr || !address) return false;
+    return ownerAddr.toLowerCase() === address.toLowerCase();
   }
 
   function isTreasuryAddress(addr: string) {
-    return (addr || "").toLowerCase() === TREASURY_ADDRESS.toLowerCase();
+    if (!ownerAddr || !addr) return false;
+    return ownerAddr.toLowerCase() === addr.toLowerCase();
   }
 
   async function loadRecentTransfers(provider: BrowserProvider) {
@@ -145,13 +147,20 @@ export default function DAppPage() {
 
     try {
       const kfl = new Contract(KFL_TOKEN_ADDRESS, KFL_ABI, provider);
-      const [sym, dec, rawBal] = await Promise.all([kfl.symbol(), kfl.decimals(), kfl.balanceOf(addr)]);
+      const [sym, dec, rawBal, ownerRes] = await Promise.all([
+        kfl.symbol(),
+        kfl.decimals(),
+        kfl.balanceOf(addr),
+        kfl.owner().catch(() => ""),
+      ]);
       const decNum = Number(dec);
       setKflSymbol(String(sym));
       setKflDecimals(Number.isFinite(decNum) ? decNum : 18);
       setKflBalance(formatUnits(rawBal, Number.isFinite(decNum) ? decNum : 18));
+      setOwnerAddr(typeof ownerRes === "string" ? ownerRes : String(ownerRes ?? ""));
     } catch {
       setKflBalance("");
+      setOwnerAddr("");
     }
 
     await loadRecentTransfers(provider);
@@ -279,7 +288,7 @@ export default function DAppPage() {
         return;
       }
       if (isTreasuryAddress(dest)) {
-        setStatus("Destination is the treasury itself. Paste your NORMAL wallet address (not 0x6b7c…939F).");
+        setStatus("Destination is the treasury (owner) wallet itself. Paste a different destination address.");
         return;
       }
 
@@ -326,29 +335,6 @@ export default function DAppPage() {
       await refresh();
     } catch (e) {
       setStatus(`Mint failed: ${(e as Error).message}`);
-    }
-  }
-
-  async function claimFaucet() {
-    try {
-      if (!injected) return;
-      if (!isOnKryptaFlow()) {
-        setStatus("Wrong network. Switch to KryptaFlow, then try again.");
-        return;
-      }
-
-      const provider = new BrowserProvider(injected as never);
-      const signer = await provider.getSigner();
-      const kfl = new Contract(KFL_TOKEN_ADDRESS, KFL_ABI, signer);
-
-      setStatus(`Claiming faucet (${kflSymbol})...`);
-      const tx = await kfl.claim();
-      setStatus(`Faucet tx: ${tx.hash} (waiting...)`);
-      await tx.wait();
-      setStatus(`Faucet confirmed: ${tx.hash}`);
-      await refresh();
-    } catch (e) {
-      setStatus(`Faucet failed: ${(e as Error).message}`);
     }
   }
 
@@ -408,7 +394,8 @@ export default function DAppPage() {
             <div>
               <h1 className="text-2xl font-semibold tracking-tight">KryptaFlow DApp</h1>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Wallet + faucet + KFL transfers on your local EVM chain.
+                Local wallet + KFL transfers. No public mint; initial supply is with the contract owner (OpenZeppelin-style
+                token).
               </p>
             </div>
             <Link
@@ -504,17 +491,10 @@ export default function DAppPage() {
               Token address: <span className="font-mono break-all">{KFL_TOKEN_ADDRESS || "—"}</span>
             </div>
 
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                Faucet: 1-click claim <span className="font-medium">100 {kflSymbol}</span> (cooldown ~60s)
-              </div>
-              <button
-                onClick={claimFaucet}
-                className="rounded-xl bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-                disabled={!address}
-              >
-                Get 100 {kflSymbol}
-              </button>
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-950 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-100">
+              Public <span className="font-medium">claim / faucet</span> minting is disabled for security (mainnet-safe
+              design). Get test {kflSymbol} using <span className="font-medium">Mint (owner only)</span> with the owner
+              account, or <span className="font-medium">Treasury send</span> from the owner wallet.
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -582,8 +562,9 @@ export default function DAppPage() {
                 <div className="flex flex-col gap-1">
                   <div className="text-sm font-medium">Treasury send (recommended)</div>
                   <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                    If MetaMask says “duplicate”, treasury is already imported. Just switch to it (address{" "}
-                    <span className="font-mono">{shortAddr(TREASURY_ADDRESS)}</span>) then send to your normal wallet.
+                    If MetaMask says “duplicate”, the owner account is already imported. Switch to the owner address (
+                    <span className="font-mono">{ownerAddr ? shortAddr(ownerAddr) : "—"}</span>) then send to your normal
+                    wallet.
                   </div>
                 </div>
 

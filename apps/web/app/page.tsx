@@ -121,8 +121,8 @@ export default function Home() {
                 </div>
                 <div className="rounded-2xl bg-black/40 p-5 ring-1 ring-white/10">
                   <div className="text-xs font-semibold text-white/60">Onboarding</div>
-                  <div className="mt-1 text-lg font-semibold">1‑click faucet</div>
-                  <div className="mt-1 text-sm text-white/70">Users test in seconds—no support tickets.</div>
+                  <div className="mt-1 text-lg font-semibold">Controlled test funds</div>
+                  <div className="mt-1 text-sm text-white/70">Owner‑minted KFL on localhost—no public claim spam.</div>
                 </div>
                 <div className="rounded-2xl bg-black/40 p-5 ring-1 ring-white/10 kf-float">
                   <div className="text-xs font-semibold text-white/60">Launch plan</div>
@@ -249,7 +249,7 @@ export default function Home() {
                 <div className="text-xs font-semibold text-white/60">Phase 1</div>
               <div className="mt-1 font-semibold">Demo & community</div>
                 <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-white/70">
-                <li>Explorer + faucet + token</li>
+                <li>Explorer + local KFL + dApp</li>
                 <li>Landing page & docs</li>
                 <li>Early partners</li>
               </ul>

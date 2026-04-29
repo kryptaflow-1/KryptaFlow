@@ -76,12 +76,12 @@ export default function WhitepaperPage() {
           <div className="rounded-3xl bg-black/40 p-8 ring-1 ring-white/10">
             <h2 className="text-xl font-semibold">Solution</h2>
             <p className="mt-3 text-sm text-white/70">
-              KryptaFlow ships an EVM chain + token + explorer + faucet so anyone can verify progress and test UX end‑to‑end.
+              KryptaFlow ships an EVM chain + token + explorer + dApp so anyone can verify progress and test UX end‑to‑end—without a public mint faucet (mainnet‑safe token design).
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/70">
               <li>EVM compatibility (MetaMask + Solidity)</li>
               <li>Explorer-first transparency (Blockscout)</li>
-              <li>Faucet and demo dApp for instant onboarding</li>
+              <li>Demo dApp with owner‑only mint for local onboarding (no public faucet)</li>
             </ul>
           </div>
         </section>

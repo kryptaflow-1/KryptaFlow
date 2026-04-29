@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "KryptaFlow — EVM Chain + KFL Token",
-  description: "A BSC-like EVM chain starter with Blockscout explorer, a faucet, and the KFL token.",
+  description: "A BSC-like EVM chain starter with Blockscout explorer and the KFL token (OpenZeppelin-based, no public faucet mint).",
   metadataBase: new URL(`https://${siteConfig.domain}`),
   openGraph: {
     title: "KryptaFlow — EVM Chain + KFL Token",

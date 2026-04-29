@@ -6,7 +6,7 @@ async function main() {
   const [deployer] = await ethers.getSigners();
 
   const Token = await ethers.getContractFactory("KryptaFlowToken");
-  const token = await Token.deploy();
+  const token = await Token.deploy(deployer.address);
   await token.waitForDeployment();
 
   console.log("Deployer:", deployer.address);

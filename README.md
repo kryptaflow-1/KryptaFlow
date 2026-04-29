@@ -60,6 +60,11 @@ This will print **local-dev only** accounts + private keys and start an RPC at `
 - **Never reuse** printed local private keys / seed phrases for **mainnet** wallets.
 - Each Ganache restart now uses a **fresh random mnemonic** (no fixed phrase in repo). Old Git commits may still contain a removed dev mnemonic in history — anyone who reused those keys elsewhere should migrate funds to a **new** wallet generated offline.
 
+### KFL token (security model)
+
+- Implemented with **OpenZeppelin** `ERC20` + **`ERC20Capped`** (hard cap) + **`Ownable2Step`** (safer ownership handover).
+- **No public `claim()` faucet** on-chain (easy to abuse on real networks). Extra supply is **`mint` by `owner()`** only, until the cap.
+- After editing the contract, redeploy and refresh the web app manifest: `npm run chain:node` → `npm run chain:deploy` (updates `apps/web/app/generated/chain.ts`).
 
 ## Run the block explorer (Blockscout)
 
